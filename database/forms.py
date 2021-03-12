@@ -1,16 +1,7 @@
-from django.forms import ModelForm
-from database.models import Site
+from django import forms
 
 
-class SiteForm(ModelForm):
-    class Meta:
-        model = Site
-        fields = ['site_url', 'check_interval']
-
-
-def add_site(request):
-    if request.method == 'POST':
-        form = SiteForm(request.POST)
-        if form.is_valid():
-            form.save()
-
+class SiteForm(forms.Form):
+    site_id = forms.IntegerField()
+    site_url = forms.CharField(max_length=200)
+    check_interval = forms.IntegerField()

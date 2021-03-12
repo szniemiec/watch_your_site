@@ -1,3 +1,9 @@
 from django.shortcuts import render
 
-# Create your views here.
+from .models import Site
+
+
+def site_info(request):
+    form = Site.objects.all()
+    print("Sites", form)
+    return render(request, 'siteslist.html', {'form': form})
