@@ -100,5 +100,4 @@ GitHub.sublime-settings
 
 dump.rdb
 celerybeat-schedule
-database
 
