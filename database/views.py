@@ -1,9 +1,9 @@
 from django.shortcuts import render
 
-from .models import Site
+from .models import Task
 
 
-def site_info(request):
-    form = Site.objects.all()
-    print("Sites", form)
-    return render(request, 'siteslist.html', {'form': form})
+def task_list(request):
+    form = Task.objects.all()
+    print("Tasks", form)
+    return render(request, 'tasklist.html', {'form': form})

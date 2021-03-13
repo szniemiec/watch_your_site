@@ -11,19 +11,19 @@
     </style>
 </head>
 <body>
-<h1>Watched sites</h1>
+<h1>Current tasks</h1>
 {% if form %}
     <table>
         <tr>
-            <th>Site ID</th>
-            <th>Site URL</th>
-            <th>Check interval</th>
+            <th>ID</th>
+            <th>URL</th>
+            <th>Interval ID</th>
         </tr>
         <tr>
-            {% for site in form %}
-                <td>{{ site.site_id }}</td>
-                <td>{{ site.site_url }}</td>
-                <td>{{ site.check_interval }}</td>
+            {% for task in form %}
+                <td>{{ task.id }}</td>
+                <td>{{ task.url }}</td>
+                <td>{{ task.interval }}</td>
                 </tr>
             {% endfor %}
     </table>

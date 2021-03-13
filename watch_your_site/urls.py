@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from database.views import site_info
+
+from database.views import task_list
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('sites/', site_info, name='sites'),
+    path('tasklist/', task_list, name='sites'),
 ]
