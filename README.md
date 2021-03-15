@@ -20,3 +20,4 @@ What I couldn't do:
 To improve:
 
 - custom interface
+- requirements.txt contains many unused programs
