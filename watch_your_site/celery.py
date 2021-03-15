@@ -10,4 +10,3 @@ app = Celery('watch_your_site')
 
 app.config_from_object('django.conf:settings', namespace='CELERY')
 
-app.autodiscover_tasks()
