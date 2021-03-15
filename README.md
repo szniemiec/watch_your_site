@@ -9,6 +9,6 @@ What I managed to do:
 - run single task
 - add intervals dependent on the list of tasks got from database
 
-What i couldn't do:
+What I couldn't do:
 - add periodic tasks, with it's interval, depending on list of tasks got from database what resulted in not completing rest of program
 
