@@ -7,8 +7,8 @@ What I managed to do:
 - create simple view with it's own endpoint
 - import celery
 - run single task
-- add intervals dynamically dependent on unique tasks
+- add intervals dependent on the list of tasks got from database
 
 What i couldn't do:
-- add periodic task dynamically depending on list of tasks got from database what resulted in not completing rest of program
+- add periodic tasks, with it's interval, depending on list of tasks got from database what resulted in not completing rest of program
 
