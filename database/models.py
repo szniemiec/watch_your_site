@@ -14,7 +14,3 @@ class Result(models.Model):
     http_code = models.TextField(max_length=200, default='method error')
     date = models.DateTimeField(default=now())
     task_id = models.PositiveIntegerField(default=0)
-
-# class Interval(models.Model):
-#     id = models.AutoField(primary_key=True)
-#     interval = models.PositiveIntegerField(default=15)
