@@ -19,5 +19,10 @@ def setup_periodic_tasks(sender, **kwargs):
 
 @app.task
 def fetch_url(url, task_id):
-    http_code = requests.get(url).status_code
-    Result.objects.create(http_code=http_code, task_id=task_id).save()
+    http_code = -1
+    try:
+        http_code = requests.get(url, verify=False, timeout=5).status_code
+    except http_code < 0:
+        http_code = 'timeout'
+    finally:
+        Result.objects.create(http_code=http_code, task_id=task_id).save()
