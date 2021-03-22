@@ -37,9 +37,15 @@
                 {% endfor %}
                 </tbody>
             </table>
+
             <form action="/results">
                 <input type="submit" value="Show results"/>
             </form>
+            <br>
+            <form action="/createtask">
+                <input type="submit" value="Add task"/>
+            </form>
+
         {% else %}
             <h1>No Data</h1>
         {% endif %}

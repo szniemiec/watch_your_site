@@ -13,3 +13,15 @@ def result_list(request):
     form = Result.objects.all()
     print("Results", form)
     return render(request, 'results.html', {'form': form})
+
+
+def create_task(request):
+    if request.method == 'POST':
+        if request.POST.get('url') and request.POST.get('interval'):
+            task = Task()
+            task.url = request.POST.get('url')
+            task.content = request.POST.get('interval')
+            task.save()
+            return render(request, 'createtask.html')
+    else:
+        return render(request, 'createtask.html')

@@ -1,0 +1,16 @@
+<html>
+<head>
+    <title>Watch your site app</title>
+</head>
+
+<body>
+<h1>Create a Task</h1>
+<form action="" method="POST">
+    {% csrf_token %}
+    url: <input type="url" name="url"/><br/>
+    interval: <input type="number" name="interval"/><br/>
+    <input type="submit" value="Post"/>
+</form>
+</body>
+
+</html>
