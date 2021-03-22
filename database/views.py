@@ -20,7 +20,7 @@ def create_task(request):
         if request.POST.get('url') and request.POST.get('interval'):
             task = Task()
             task.url = request.POST.get('url')
-            task.content = request.POST.get('interval')
+            task.interval = request.POST.get('interval')
             task.save()
             return render(request, 'createtask.html')
     else:
