@@ -1,5 +1,5 @@
-document.getElementById('random')
+document.getElementById('showResultsButton')
 
-function getTasks() {
+function showResults(id) {
     console.log("llaalasld")
 }

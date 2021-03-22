@@ -16,29 +16,26 @@
 <div class="container">
     <h1 id="title">Watch your site app</h1>
 
-    <div class="tasks">
-        <p class="taskListTitle">Scheduled tasks</p>
+    <div class="results">
+        <p class="resultListTitle">Results</p>
         {% if form %}
-            <div class="taskList">
+            <div class="resultList">
                 <table class="table">
                     <thead>
                     <tr>
                         <th>id</th>
-                        <th>url</th>
-                        <th>interval</th>
+                        <th>date</th>
+                        <th>http_code</th>
+                        <th>task_id</th>
                     </tr>
                     </thead>
                     <tbody>
-                    {% for task in form %}
+                    {% for result in form %}
                         <tr>
-                            <td>{{ task.id }}</td>
-                            <td>{{ task.url }}</td>
-                            <td>{{ task.interval }}</td>
-                            <td>
-                                <button id="showResultsButton" type="button" onclick="showResults({{ task.id }})"
-                                        class="btn btn-primary">Results
-                                </button>
-                            </td>
+                            <td>{{ result.id }}</td>
+                            <td>{{ result.date }}</td>
+                            <td>{{ result.http_code }}</td>
+                            <td>{{ result.task_id }}</td>
                         </tr>
                     {% endfor %}
                     </tbody>
