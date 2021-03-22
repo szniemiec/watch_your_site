@@ -10,7 +10,8 @@ def task_list(request):
 
 
 def result_list(request):
-    form = Result.objects.all()
+    form = Result.objects.all().order_by('date').reverse()
+    form.reverse()
     print("Results", form)
     return render(request, 'results.html', {'form': form})
 

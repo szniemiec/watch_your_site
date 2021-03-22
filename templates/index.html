@@ -16,6 +16,11 @@
 <div class="container">
     <h1 id="title">Watch your site app</h1>
 
+    <form action="/createtask">
+        <input type="submit" value="Add task"/>
+    </form>
+    <br>
+
     <div class="tasks">
         <p class="taskListTitle">Scheduled tasks</p>
         {% if form %}
@@ -46,10 +51,6 @@
         <input type="submit" value="Show results"/>
     </form>
     <br>
-    <form action="/createtask">
-        <input type="submit" value="Add task"/>
-    </form>
-
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
