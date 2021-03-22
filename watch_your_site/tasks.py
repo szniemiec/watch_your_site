@@ -12,17 +12,18 @@ def setup_periodic_tasks(sender, **kwargs):
         task_name = 'fetch ' + task_object.url
         interval_schedule = IntervalSchedule.objects.create(every=task_object.interval,
                                                             period=IntervalSchedule.SECONDS)
-        sender.add_periodic_task(task_object.interval, fetch_url.s(task_object.url, task_object.id), name=task_name)
+        sender.add_periodic_task(task_object.interval, fetch_url.s(task_object.id), name=task_name)
         PeriodicTask.objects.create(interval=interval_schedule, name=task_name,
-                                    task='watch_your_site.tasks.fetch_url')
+                                    task='watch_your_site.tasks.fetch_url', args=[task_object.id, ])
 
 
-@app.task
-def fetch_url(url, task_id):
+@app.task(bind=True)
+def fetch_url(self, task_id):
+    task = Task.objects.get(pk=task_id)
     http_code = -1
     try:
-        http_code = requests.get(url, verify=False, timeout=5).status_code
+        http_code = requests.get(task.url, verify=False, timeout=5).status_code
     except http_code < 0:
         http_code = 'timeout'
     finally:
-        Result.objects.create(http_code=http_code, task_id=task_id).save()
+        Result.objects.create(http_code=http_code, task_id=task.id).save()
