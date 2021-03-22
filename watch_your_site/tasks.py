@@ -17,13 +17,13 @@ def setup_periodic_tasks(sender, **kwargs):
                                     task='watch_your_site.tasks.fetch_url', args=[task_object.id, ])
 
 
-@app.task(bind=True)
-def fetch_url(self, task_id):
+@app.task
+def fetch_url(task_id):
     task = Task.objects.get(pk=task_id)
-    http_code = -1
+    http_code = 'timeout'
     try:
         http_code = requests.get(task.url, verify=False, timeout=5).status_code
-    except http_code < 0:
-        http_code = 'timeout'
+    except TypeError:
+        http_code = 'bad task'
     finally:
         Result.objects.create(http_code=http_code, task_id=task.id).save()

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 from .models import Task, Result
 
@@ -23,6 +23,12 @@ def create_task(request):
             task.url = request.POST.get('url')
             task.interval = request.POST.get('interval')
             task.save()
-            return render(request, 'createtask.html')
+            return render(request, 'tasks.html')
     else:
-        return render(request, 'createtask.html')
+        return render(request, 'tasks.html')
+
+
+def delete_task(request, task_id):
+    if request.method == 'POST':
+        Task.objects.get(pk=task_id).delete()
+    return redirect('/index/')

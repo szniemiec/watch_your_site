@@ -16,7 +16,7 @@
 <div class="container">
     <h1 id="title">Watch your site app</h1>
 
-    <form action="/createtask">
+    <form action="/tasks">
         <input type="submit" value="Add task"/>
     </form>
     <br>
@@ -38,6 +38,12 @@
                         <td>{{ task.id }}</td>
                         <td>{{ task.url }}</td>
                         <td>{{ task.interval }}</td>
+                        <td>
+                            <form action="/tasks/{{ task.id }}" method="POST">
+                                {% csrf_token %}
+                                <button type="submit">Delete</button>
+                            </form>
+                        </td>
                     </tr>
                 {% endfor %}
                 </tbody>
