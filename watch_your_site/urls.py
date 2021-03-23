@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.urls import path
 
-from database.views import task_list, result_list, create_task, delete_task
+from database.views import task_list, result_list, create_task, delete_task, update_task
 from watch_your_site import settings
 
 urlpatterns = [
@@ -27,6 +27,7 @@ urlpatterns = [
     path('results/', result_list, name='results'),
     path('tasks/', create_task, name='createTask'),
     path('tasks/<int:task_id>', delete_task, name='deleteTask'),
+    path('updatetask/<task_id>', update_task, name='updateTask'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

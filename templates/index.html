@@ -39,6 +39,11 @@
                         <td>{{ task.url }}</td>
                         <td>{{ task.interval }}</td>
                         <td>
+                            <form action="/updatetask/{{ task.id }}">
+                                <input type="submit" value="Edit task"/>
+                            </form>
+                        </td>
+                        <td>
                             <form action="/tasks/{{ task.id }}" method="POST">
                                 {% csrf_token %}
                                 <button type="submit">Delete</button>

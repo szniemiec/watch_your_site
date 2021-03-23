@@ -1,15 +1,15 @@
 from django import forms
 
+from database.models import Task
 
-class TaskForm(forms.Form):
-    site_id = forms.IntegerField()
-    site_url = forms.CharField(max_length=200)
-    check_interval = forms.IntegerField()
 
-    # class Meta:
-    #     model = Task
-    #     fields = ['site_url', 'check_interval']
-    #     exclude = ['site_id']
+class TaskForm(forms.ModelForm):
+    url = forms.CharField(max_length=200)
+    interval = forms.IntegerField()
+
+    class Meta:
+        model = Task
+        fields = ['url', 'interval']
 
 
 class ResultForm(forms.Form):
