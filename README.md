@@ -1,23 +1,17 @@
-This program isn't finished.
+This application isn't finished.
 
-What I managed to do:
+/index is a main page, where you can:
+- Add new task
+- Edit/Delete exiting tasks
+- See results (you can filter them by task_id)
 
-- setup Django project
-- setup PostgreSQL database
-- create models and manipulate them
-- create simple view with its own endpoint (/tasklist)
-- import celery
-- run single task
-- add intervals
-- add tasks
-- run single task and save results to database
-- programs results are visible in the django admin panel
+Alternatively you can use Django admin panel.
 
-What I couldn't do:
-
-- fetch multiple sites simultaneously in their task defined schedule
+To import tasks from database, start redis-server and run:
+- celery -A watch_your_site worker -l info
+- celery -A watch_your_site beat -l INFO --scheduler django_celery_beat.schedulers:DatabaseScheduler
 
 To improve:
-
-- custom interface
-- requirements.txt contains many unused programs
+- POST -> DELETE in task deletion
+- run and reload tasks from /index
+- sort bad results and show them in some list
