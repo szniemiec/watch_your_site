@@ -15,3 +15,4 @@ To improve:
 - POST -> DELETE in task deletion
 - run and reload tasks from /index
 - sort bad results and show them in some list
+- REST API
