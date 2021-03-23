@@ -1,4 +1,4 @@
-This application isn't finished.
+This application isn't finished. Create PostgreSQL database with information from settings.py and clone this repo to test it. Run python manage.py runserver to start.
 
 /index is a main page, where you can:
 - Add new task
