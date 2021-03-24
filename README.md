@@ -10,6 +10,7 @@ Alternatively you can use Django admin panel.
 To import tasks from database, start redis-server and run:
 - celery -A watch_your_site worker -l info
 - celery -A watch_your_site beat -l INFO --scheduler django_celery_beat.schedulers:DatabaseScheduler
+To reload tasks remove everything from Periodic Tasks in Django admin panel and run these commands again.
 
 To improve:
 - POST -> DELETE in task deletion
