@@ -18,3 +18,4 @@ To improve:
 - run and reload tasks from /index
 - sort bad results and show them in some list
 - REST API
+- stop re-creation of intervals
